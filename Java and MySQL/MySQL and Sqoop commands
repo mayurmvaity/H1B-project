@@ -1,0 +1,15 @@
+Q.11) Export result for question no 10 to MySql database.
+
+MySQL commands:
+----------------------------
+create database h1bdb;
+
+create table h1bq11 (
+job_title varchar(100),
+success_rate double,
+primary key(job_title));
+
+Sqoop command:
+----------------------------
+sqoop export --connect jdbc:mysql://localhost/h1bdb --username root --password 'adam' --table h1bq11 --update-mode allowinsert --update-key job_title --export-dir /q10op3/part-r-00000 --input-fields-terminated-by '\t';
+

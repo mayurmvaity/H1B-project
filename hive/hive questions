@@ -1,0 +1,111 @@
+Q.3) Which industry(SOC_NAME) has the most number of Data Scientist positions?
+hive -e "select soc_name, count(*) as scount from h1b_final where job_title = 'DATA SCIENTIST' and case_status='CERTIFIED' group by soc_name order by scount desc limit 1";
+
+
+Q.4) Which top 5 employers file the most petitions each year?
+For 2011
+hive -e "select employer_name,count(*) as pcount from h1b_final where year='2011' group by employer_name order by pcount desc limit 5;"
+
+For 2012
+hive -e "select employer_name,count(*) as pcount from h1b_final where year='2012' group by employer_name order by pcount desc limit 5;"
+
+For 2013
+hive -e "select employer_name,count(*) as pcount from h1b_final where year='2013' group by employer_name order by pcount desc limit 5;"
+
+For 2014
+hive -e "select employer_name,count(*) as pcount from h1b_final where year='2014' group by employer_name order by pcount desc limit 5;"
+
+For 2015
+hive -e "select employer_name,count(*) as pcount from h1b_final where year='2015' group by employer_name order by pcount desc limit 5;"
+
+For 2016
+hive -e "select employer_name,count(*) as pcount from h1b_final where year='2016' group by employer_name order by pcount desc limit 5;"
+
+
+Q.5) Find the most popular top 10 job positions for H1B visa applications for each year?
+a) for all the applications
+b) for only certified applications.
+
+i) For all petitions:
+For 2011
+hive -e "select job_title, count(*) as num from h1b_final where year='2011' group by job_title order by num desc limit 10;";
+
+For 2012
+hive -e "select job_title, count(*) as num from h1b_final where year='2012' group by job_title order by num desc limit 10;";
+
+For 2013
+hive -e "select job_title, count(*) as num from h1b_final where year='2013' group by job_title order by num desc limit 10;";
+
+For 2014
+hive -e "select job_title, count(*) as num from h1b_final where year='2014' group by job_title order by num desc limit 10;";
+
+For 2015
+hive -e "select job_title, count(*) as num from h1b_final where year='2015' group by job_title order by num desc limit 10;";
+
+For 2016
+hive -e "select job_title, count(*) as num from h1b_final where year='2016' group by job_title order by num desc limit 10;";
+
+ii) For Certified petitions:
+For 2011
+hive -e "select job_title, count(*) as num from h1b_final where year='2011' and case_status='CERTIFIED' group by job_title order by num desc limit 10;";
+
+For 2012
+hive -e "select job_title, count(*) as num from h1b_final where year='2012' and case_status='CERTIFIED' group by job_title order by num desc limit 10;";
+
+For 2013
+hive -e "select job_title, count(*) as num from h1b_final where year='2013' and case_status='CERTIFIED' group by job_title order by num desc limit 10;";
+
+For 2014
+hive -e "select job_title, count(*) as num from h1b_final where year='2014' and case_status='CERTIFIED' group by job_title order by num desc limit 10;";
+
+For 2015
+hive -e "select job_title, count(*) as num from h1b_final where year='2015' and case_status='CERTIFIED' group by job_title order by num desc limit 10;";
+
+For 2016
+hive -e "select job_title, count(*) as num from h1b_final where year='2016' and case_status='CERTIFIED' group by job_title order by num desc limit 10;";
+
+
+
+Q.8) Find the average Prevailing Wage for each Job for each Year (take part time and full time separate). Arrange the output in descending order.
+
+i) For full-time jobs:
+For 2011
+hive -e "select job_title, sum(prevailing_wage)/count(*) as avg1 from h1b_final where year='2011' and full_time_position='Y' and case_status in ('CERTIFIED', 'CERTIFIED-WITHDRAWN') group by job_title order by avg1 desc;";
+
+For 2012
+hive -e "select job_title, sum(prevailing_wage)/count(*) as avg1 from h1b_final where year='2012' and full_time_position='Y' and case_status in ('CERTIFIED', 'CERTIFIED-WITHDRAWN') group by job_title order by avg1 desc;";
+
+For 2013
+hive -e "select job_title, sum(prevailing_wage)/count(*) as avg1 from h1b_final where year='2013' and full_time_position='Y' and case_status in ('CERTIFIED', 'CERTIFIED-WITHDRAWN') group by job_title order by avg1 desc;";
+
+For 2014
+hive -e "select job_title, sum(prevailing_wage)/count(*) as avg1 from h1b_final where year='2014' and full_time_position='Y' and case_status in ('CERTIFIED', 'CERTIFIED-WITHDRAWN') group by job_title order by avg1 desc;";
+
+For 2015
+hive -e "select job_title, sum(prevailing_wage)/count(*) as avg1 from h1b_final where year='2015' and full_time_position='Y' and case_status in ('CERTIFIED', 'CERTIFIED-WITHDRAWN') group by job_title order by avg1 desc;";
+
+For 2016
+hive -e "select job_title, sum(prevailing_wage)/count(*) as avg1 from h1b_final where year='2016' and full_time_position='Y' and case_status in ('CERTIFIED', 'CERTIFIED-WITHDRAWN') group by job_title order by avg1 desc;";
+
+ii) For part-time jobs:
+For year 2011
+hive -e "select job_title, sum(prevailing_wage)/count(*) as avg1 from h1b_final where year='2011' and full_time_position !='Y' and case_status in ('CERTIFIED', 'CERTIFIED-WITHDRAWN') group by job_title order by avg1 desc;";
+
+For year 2012
+hive -e "select job_title, sum(prevailing_wage)/count(*) as avg1 from h1b_final where year='2012' and full_time_position !='Y' and case_status in ('CERTIFIED', 'CERTIFIED-WITHDRAWN') group by job_title order by avg1 desc;";
+
+For year 2013
+hive -e "select job_title, sum(prevailing_wage)/count(*) as avg1 from h1b_final where year='2013' and full_time_position !='Y' and case_status in ('CERTIFIED', 'CERTIFIED-WITHDRAWN') group by job_title order by avg1 desc;";
+
+For year 2014
+hive -e "select job_title, sum(prevailing_wage)/count(*) as avg1 from h1b_final where year='2014' and full_time_position !='Y' and case_status in ('CERTIFIED', 'CERTIFIED-WITHDRAWN') group by job_title order by avg1 desc;";
+
+For year 2015
+hive -e "select job_title, sum(prevailing_wage)/count(*) as avg1 from h1b_final where year='2015' and full_time_position !='Y' and case_status in ('CERTIFIED', 'CERTIFIED-WITHDRAWN') group by job_title order by avg1 desc;";
+
+For year 2016
+hive -e "select job_title, sum(prevailing_wage)/count(*) as avg1 from h1b_final where year='2016' and full_time_position !='Y' and case_status in ('CERTIFIED', 'CERTIFIED-WITHDRAWN') group by job_title order by avg1 desc;";
+
+
+
+

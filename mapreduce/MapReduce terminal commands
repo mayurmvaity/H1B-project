@@ -1,0 +1,45 @@
+Q.1a) Is the number of petitions with Data Engineer job title increasing over time?
+hadoop jar h1bPro.jar h1bpkg.Que1a /niit/h1bpro/datafiles /niit/h1bpro/opfiles/q1aop1
+hdfs dfs -cat /niit/h1bpro/opfiles/q1aop1/p*
+
+
+Q.2a) Which part of the US has the most Data Engineer jobs for each year?
+hadoop jar h1bPro.jar h1bpkg.Que2a /niit/h1bpro/datafiles /niit/h1bpro/opfiles/q2aop6
+hdfs dfs -cat /niit/h1bpro/opfiles/q2aop6/p*
+
+
+Q.2b) find top 5 locations in the US who have got certified visa for each year.
+For year 2011:
+hadoop jar h1bPro.jar Q2bpkg.Q2bDriver /niit/h1bpro/datafiles /niit/h1bpro/opfiles/q2bop2011m1
+hdfs dfs -cat /niit/h1bpro/opfiles/q2bop2011m1/p*
+
+For year 2012:
+hadoop jar h1bPro.jar Q2bpkg12.Q2bDriver /niit/h1bpro/datafiles /niit/h1bpro/opfiles/q2bop2012m3
+hdfs dfs -cat /niit/h1bpro/opfiles/q2bop2012m3/p*
+
+For year 2013:
+hadoop jar h1bPro.jar Q2bpkg13.Q2bDriver /niit/h1bpro/datafiles /niit/h1bpro/opfiles/q2bop2013m1
+hdfs dfs -cat /niit/h1bpro/opfiles/q2bop2013m1/p*
+
+For year 2014:
+hadoop jar h1bPro.jar Q2bpkg14.Q2bDriver /niit/h1bpro/datafiles /niit/h1bpro/opfiles/q2bop2014m1
+hdfs dfs -cat /niit/h1bpro/opfiles/q2bop2014m1/p*
+
+For year 2015:
+hadoop jar h1bPro.jar Q2bpkg15.Q2bDriver /niit/h1bpro/datafiles /niit/h1bpro/opfiles/q2bop2015m1
+hdfs dfs -cat /niit/h1bpro/opfiles/q2bop2015m1/p*
+
+For year 2016:
+hadoop jar h1bPro.jar Q2bpkg16.Q2bDriver /niit/h1bpro/datafiles /niit/h1bpro/opfiles/q2bop2016m1
+hdfs dfs -cat /niit/h1bpro/opfiles/q2bop2016m1/p*
+
+
+Q.7) Create a bar graph to depict the number of applications for each year.
+hadoop jar h1bPro.jar h1bpkg.Que7 /niit/h1bpro/datafiles /niit/h1bpro/opfiles/q7op1
+hdfs dfs -cat /niit/h1bpro/opfiles/q7op1/p*
+
+
+
+
+
+
